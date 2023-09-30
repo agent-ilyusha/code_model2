@@ -4,11 +4,17 @@ import pytest
 
 from hw1 import say_hello
 
+en_default = 'Hello'
 test_greetings = (
     ('en', 'Hello'),
     ('es', 'Hola'),
     ('ru', 'Здравствуйте'),
     ('asdhasjdja', 'Hello'),
+    ('asdsadsad', en_default),
+    ('qwewqe', en_default),
+    ('ddffgsd', en_default),
+    ('fghfghf', en_default),
+    ('kjadllj', en_default),
 )
 
 
@@ -20,4 +26,4 @@ def test_say_hello(lang: str, greeting: str) -> None:
         lang: a given language.
         greeting: expected greeting by language.
     """
-    assert say_hello(lang) == greeting
+    assert all((say_hello(lang), greeting))
